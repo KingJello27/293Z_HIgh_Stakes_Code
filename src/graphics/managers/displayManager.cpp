@@ -9,7 +9,7 @@ bool menuIndexChanged;
 
 //Display Initialization
 void displayInit(){
-  menuIndex=1;
+  menuIndex=0;
   menuIndexChanged=true;
 }
 

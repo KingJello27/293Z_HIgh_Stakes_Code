@@ -27,7 +27,7 @@ void longShot(){
     discStopper.set_value(true);
     pros::delay(150);
     intake.move_voltage(-12000);
-    pros::delay(150);
+    pros::delay(100);
     intake.move_voltage(0);
     discStopper.set_value(false);
     pros::delay(100);
@@ -56,7 +56,7 @@ void longShot(){
     discStopper.set_value(true);
     pros::delay(150);
     intake.move_voltage(-12000);
-    pros::delay(200);
+    pros::delay(150);
     intake.move_voltage(0);
     discStopper.set_value(false);
     pros::delay(100);
@@ -143,7 +143,7 @@ void autonomous() {
         case 1:
     
             //Off Roller
-            setFlywheel(2900);
+            setFlywheel(2925);
             angleAdjuster.set_value(false);
             intake.move_velocity(-1200);
 
@@ -176,7 +176,7 @@ void autonomous() {
             intake.move_velocity(-12000);
             discStopper.set_value(true);
 
-            setFlywheel(3100);
+            setFlywheel(3125);
             chassis.set_drive_pid(13,90,false,true);
             chassis.wait_drive();
 
