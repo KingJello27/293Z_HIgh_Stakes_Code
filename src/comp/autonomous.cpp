@@ -13,7 +13,7 @@ void longShot(){
     discStopper.set_value(true);
     pros::delay(150);
     intake.move_voltage(-12000);
-    pros::delay(175);
+    pros::delay(150);
     intake.move_voltage(0);
     discStopper.set_value(false);
     pros::delay(100);
@@ -27,7 +27,7 @@ void longShot(){
     discStopper.set_value(true);
     pros::delay(150);
     intake.move_voltage(-12000);
-    pros::delay(175);
+    pros::delay(150);
     intake.move_voltage(0);
     discStopper.set_value(false);
     pros::delay(100);
@@ -56,7 +56,7 @@ void longShot(){
     discStopper.set_value(true);
     pros::delay(150);
     intake.move_voltage(-12000);
-    pros::delay(150);
+    pros::delay(200);
     intake.move_voltage(0);
     discStopper.set_value(false);
     pros::delay(100);
