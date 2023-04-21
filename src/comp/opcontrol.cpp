@@ -42,7 +42,7 @@
                 if(angleAdjusterState == true){//Blooper Up
                     flywheelRPM = 2900;
                 }else{//Blooper Down
-                    flywheelRPM = 3050;
+                    flywheelRPM = 3100;
                 }
             }
 
