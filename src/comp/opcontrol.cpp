@@ -22,7 +22,7 @@
 
         double intakeVoltage = 0;
         // *Max Flywheel RPM is 3600
-        double flywheelRPM = 2900;
+        double flywheelRPM = 2600;
 
         bool angleAdjusterState = true;
         bool discStopperState = false;
@@ -40,9 +40,9 @@
                 angleAdjusterState = !angleAdjusterState;
                 angleAdjuster.set_value(angleAdjusterState);
                 if(angleAdjusterState == true){//Blooper Up
-                    flywheelRPM = 2900;
+                    flywheelRPM = 2600;
                 }else{//Blooper Down
-                    flywheelRPM = 3100;
+                    flywheelRPM = 2800;
                 }
             }
 
