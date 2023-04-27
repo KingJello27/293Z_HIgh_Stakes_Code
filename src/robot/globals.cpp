@@ -19,9 +19,9 @@ Motor intake(2, E_MOTOR_GEARSET_06, true, E_MOTOR_ENCODER_DEGREES);
 Motor motors[8] = {leftFront, leftMiddle, leftBack, rightFront, rightMiddle, rightBack, flywheel, intake};
 
 //Pneumatics
-pros::ADIDigitalOut leftEndgame('C');
-pros::ADIDigitalOut rightEndgame('D');
-pros::ADIDigitalOut angleAdjuster('A');
+pros::ADIDigitalOut leftEndgame('A');
+pros::ADIDigitalOut rightEndgame('F');
+pros::ADIDigitalOut angleAdjuster('C');
 pros::ADIDigitalOut discStopper('B');
 
 //Chassis
