@@ -30,5 +30,5 @@ const char* autonDescs[12] = {"On Roller",
 
 //Autonomous Manager Initialization
 void autonInit(){
-  autonIndex=0;
+  autonIndex=2;
 }

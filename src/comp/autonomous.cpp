@@ -27,7 +27,7 @@ void longShot(){
     discStopper.set_value(true);
     pros::delay(150);
     intake.move_voltage(-12000);
-    pros::delay(100);
+    pros::delay(175);
     intake.move_voltage(0);
     discStopper.set_value(false);
     pros::delay(100);
@@ -143,7 +143,7 @@ void autonomous() {
         case 1:
     
             //Off Roller
-            setFlywheel(2925);
+            setFlywheel(3000);
             angleAdjuster.set_value(false);
             intake.move_velocity(-1200);
 
@@ -168,7 +168,7 @@ void autonomous() {
             
             chassis.set_drive_pid(-66,110,false,true);
             chassis.wait_drive();
-            chassis.set_turn_pid(-138,90);
+            chassis.set_turn_pid(-139,90);
             chassis.wait_drive();
             
             chassis.set_drive_pid(-3,95,false,true);
@@ -177,14 +177,14 @@ void autonomous() {
             discStopper.set_value(true);
 
             setFlywheel(3125);
-            chassis.set_drive_pid(13,90,false,true);
+            chassis.set_drive_pid(10,90,false,true);
             chassis.wait_drive();
 
             break;
         case 2:
 
             //AWP
-            setFlywheel(3000);
+            setFlywheel(3075);
             angleAdjuster.set_value(false);
 
             chassis.set_drive_pid(2,110,false,true);
@@ -214,7 +214,7 @@ void autonomous() {
             chassis.wait_drive();
 
             intake.move_velocity(-12000);
-            chassis.set_drive_pid(90,110,true,true);
+            chassis.set_drive_pid(85,110,true,true);
             chassis.wait_until(60);
             intake.move_velocity(0);
             chassis.wait_drive();
