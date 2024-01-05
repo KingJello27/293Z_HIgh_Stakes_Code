@@ -4,7 +4,7 @@
 #include "robot/subsystems/managers/pneumaticManager.hpp"
 #include <string>
 
-/**
+    /**
  * Runs the operator control code. This function will be started in its own task
  * with the default priority and stack size whenever the robot is enabled via
  * the Field Management System or the VEX Competition Switch in the operator
@@ -19,54 +19,64 @@
  */
  
     void opcontrol() {
+    // This is preference to what you like to drive on.
+    chassis.set_drive_brake(MOTOR_BRAKE_COAST);
 
-        double intakeVoltage = 0;
-        // *Max Flywheel RPM is 3600
-        double flywheelRPM = 2600;
+    bool wingState = false;
+    wings.set_value(wingState);
 
-        bool angleAdjusterState = true;
-        bool discStopperState = false;
+    // bool blockerState = false;
+    // blocker.set_value(blockerState);
 
-        angleAdjuster.set_value(angleAdjusterState);
+    bool intakeState = false;
 
-        while (true) {
-            chassis.tank();
+    bool cataState = false;
 
-            intake.move_voltage(intakeVoltage);
-            setFlywheel(flywheelRPM);
 
-            //Angle Adjuster + Flywheel Control
-            if (master.get_digital_new_press(DIGITAL_R1)){
-                angleAdjusterState = !angleAdjusterState;
-                angleAdjuster.set_value(angleAdjusterState);
-                if(angleAdjusterState == true){//Blooper Up
-                    flywheelRPM = 2600;
-                }else{//Blooper Down
-                    flywheelRPM = 2800;
-                }
-            }
+    while (true) {
 
-            //Disc Stopper Control
-            discStopper.set_value(master.get_digital(DIGITAL_R2));
+        chassis.tank(); // Tank control
+        // chassis.arcade_standard(ez::SPLIT); // Standard split arcade
+        // chassis.arcade_standard(ez::SINGLE); // Standard single arcade
+        // chassis.arcade_flipped(ez::SPLIT); // Flipped split arcade
+        // chassis.arcade_flipped(ez::SINGLE); // Flipped single arcade
 
-            //Intake/Roller Control
-            if (master.get_digital(DIGITAL_R2)){
-                intakeVoltage = -12000;
-                
-            }else if (master.get_digital(DIGITAL_L1)){
-                intakeVoltage = 12000;
-            }else if (master.get_digital(DIGITAL_L2)) {
-                intakeVoltage = -12000;
-            }else{
-                intakeVoltage = 0;
-            }
-
-            //Endgame Control
-            if (master.get_digital_new_press(DIGITAL_LEFT)){
-                leftEndgame.set_value(true);
-            }
-
-            pros::delay(30);
+        //Wing Control
+        if (master.get_digital_new_press(DIGITAL_R1)){
+        wingState = !wingState;
+        wings.set_value(wingState);
         }
-        
+
+        // //Blocker Control
+        // if (master.get_digital_new_press(DIGITAL_R2)){
+        // blockerState = !blockerState;
+        // blocker.set_value(blockerState);
+        // }
+
+        //Catapult controll
+        if (master.get_digital_new_press(DIGITAL_L1)){
+            cataState = !cataState;
+        }
+
+        if (cataState == true){
+            cata.move_voltage(10000);
+        }else{
+            cata.move_voltage(0);
+        }
+
+        //Intake Control
+        if (master.get_digital_new_press(DIGITAL_L2)){
+            intakeState = !intakeState;
+        }
+
+        if (intakeState == true){
+            intake.move_voltage(12000);
+        }else{
+            intake.move_voltage(0);
+        }
+
+
+        pros::delay(20);
+
     }
+}

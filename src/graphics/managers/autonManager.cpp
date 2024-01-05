@@ -15,9 +15,9 @@ const char* autonNames[12] = {"Autonomous 1",
                                         "Autonomous 11",
                                         "Autonomous 12"};
 
-const char* autonDescs[12] = {"On Roller",
-                                        "Off Roller",
-                                        "On Roller AWP",
+const char* autonDescs[12] = {"Close Side",
+                                        "Far Side",
+                                        "Skills",
                                         "Do Nothing",
                                         "Do Nothing",
                                         "Do Nothing",
@@ -30,5 +30,5 @@ const char* autonDescs[12] = {"On Roller",
 
 //Autonomous Manager Initialization
 void autonInit(){
-  autonIndex=2;
+  autonIndex=0;
 }

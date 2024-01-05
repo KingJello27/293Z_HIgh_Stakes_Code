@@ -15,14 +15,14 @@
 
 void initialize() {
 	autonInit();
-	pneumaticInit();
 	displayInit();
 	graphicsInit();
 	autonMenuInit();
-	flywheelInit();
+	// flywheelInit();pros
 
-	angleAdjuster.set_value(false);
-	flywheel.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+	cata.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+
+
 
 	chassis.set_slew_min_power(70, 70);
 	chassis.set_slew_distance(7, 7);
@@ -36,7 +36,7 @@ void initialize() {
   	chassis.set_exit_condition(chassis.swing_exit, 100, 3, 500, 7, 500, 500);
   	chassis.set_exit_condition(chassis.drive_exit, 80, 50, 300, 150, 500, 500);
 
-	pros::Task flywheelTask (asyncFlywheelController);
+	// pros::Task flywheelTask (asyncFlywheelController);
 	pros::Task dispTask (asyncDisplay);
 }
 

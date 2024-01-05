@@ -226,25 +226,25 @@ void diagnosticMenuInit(){
   lv_chart_set_series_width(chart, 2); /*Line width and point radious*/
   lv_chart_set_range(chart, 0, 110);
 
-  for(int i=0; i < targetSeriesPoints.size();i++){
-    targetSeriesPoints[i] = getFlywheelTarget();
-  }
+  // for(int i=0; i < targetSeriesPoints.size();i++){
+  //   targetSeriesPoints[i] = getFlywheelTarget();
+  // }
 
-  for(int i=0; i < inputSeriesPoints.size();i++){
-    inputSeriesPoints[i] = getFlywheelInput();
-  }
+  // for(int i=0; i < inputSeriesPoints.size();i++){
+  //   inputSeriesPoints[i] = getFlywheelInput();
+  // }
 
-  for(int i=0; i < outputSeriesPoints.size();i++){
-    outputSeriesPoints[i] = getFlywheelOutput();
-  }
+  // for(int i=0; i < outputSeriesPoints.size();i++){
+  //   outputSeriesPoints[i] = getFlywheelOutput();
+  // }
 
-  /*Add data series*/
-  targetSeries = lv_chart_add_series(chart, CRIMSON);
-      targetSeries->points[0] = getFlywheelTarget(); 
-  inputSeries = lv_chart_add_series(chart, LV_COLOR_PURPLE);
-    inputSeries->points[0] = getFlywheelInput();
-  outputSeries = lv_chart_add_series(chart, MARIGOLD);
-    outputSeries->points[0] = getFlywheelOutput();
+  // /*Add data series*/
+  // targetSeries = lv_chart_add_series(chart, CRIMSON);
+  //     targetSeries->points[0] = getFlywheelTarget(); 
+  // inputSeries = lv_chart_add_series(chart, LV_COLOR_PURPLE);
+  //   inputSeries->points[0] = getFlywheelInput();
+  // outputSeries = lv_chart_add_series(chart, MARIGOLD);
+  //   outputSeries->points[0] = getFlywheelOutput();
 
   drawRectangle(59, 212, 20, 20, 2, 1, CRIMSON,CRIMSON, WANNABE_WHITE);
   drawRectangle(149, 212, 20, 20, 2, 1, LV_COLOR_PURPLE,LV_COLOR_PURPLE, WANNABE_WHITE);
@@ -273,9 +273,9 @@ void diagnosticMenuUpdate(){
     outputSeriesPoints[i] = outputSeriesPoints[i+1];
   }
 
-  targetSeriesPoints[targetSeriesPoints.size()-1]= getFlywheelTarget();
-  inputSeriesPoints[inputSeriesPoints.size()-1]= getFlywheelInput();
-  outputSeriesPoints[outputSeriesPoints.size()-1]= getFlywheelOutput();
+  // targetSeriesPoints[targetSeriesPoints.size()-1]= getFlywheelTarget();
+  // inputSeriesPoints[inputSeriesPoints.size()-1]= getFlywheelInput();
+  // outputSeriesPoints[outputSeriesPoints.size()-1]= getFlywheelOutput();
 
   for(int i=0; i < targetSeriesPoints.size();i++){
     targetSeries->points[i] = targetSeriesPoints[i];
