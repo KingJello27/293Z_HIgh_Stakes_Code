@@ -4,36 +4,37 @@
 Controller master(E_CONTROLLER_MASTER);
 
 //Motors
-Motor leftFront(3, E_MOTOR_GEARSET_06, false, E_MOTOR_ENCODER_DEGREES); 
-Motor leftMiddle(1, E_MOTOR_GEARSET_06, false, E_MOTOR_ENCODER_DEGREES); 
-Motor leftBack(6, E_MOTOR_GEARSET_06, false, E_MOTOR_ENCODER_DEGREES); 
-Motor rightFront(8, E_MOTOR_GEARSET_06, true, E_MOTOR_ENCODER_DEGREES); 
-Motor rightMiddle(9, E_MOTOR_GEARSET_06, true, E_MOTOR_ENCODER_DEGREES); 
-Motor rightBack(7, E_MOTOR_GEARSET_06, false, E_MOTOR_ENCODER_DEGREES); 
+Motor leftFront(20, E_MOTOR_GEARSET_06, false, E_MOTOR_ENCODER_DEGREES); 
+Motor leftMiddle(9, E_MOTOR_GEARSET_06, false, E_MOTOR_ENCODER_DEGREES); 
+Motor leftBack(10, E_MOTOR_GEARSET_06, false, E_MOTOR_ENCODER_DEGREES);
+Motor rightFront(12, E_MOTOR_GEARSET_06, true, E_MOTOR_ENCODER_DEGREES); 
+Motor rightMiddle(2, E_MOTOR_GEARSET_06, true, E_MOTOR_ENCODER_DEGREES); 
+Motor rightBack(1, E_MOTOR_GEARSET_06, true, E_MOTOR_ENCODER_DEGREES); 
 
-Motor cata(10, E_MOTOR_GEARSET_36, false, E_MOTOR_ENCODER_DEGREES); 
-Motor intake(2, E_MOTOR_GEARSET_36, true, E_MOTOR_ENCODER_DEGREES); 
+Motor cata(14, E_MOTOR_GEARSET_36, true, E_MOTOR_ENCODER_DEGREES); 
+Motor intake(11, E_MOTOR_GEARSET_36, true, E_MOTOR_ENCODER_DEGREES); 
 
-Imu imu(11);
+Imu imu(13);
 
 Motor motors[8] = {leftFront, leftMiddle, leftBack, rightFront, rightMiddle, rightBack, cata, intake};
 
 //Pneumatics
 pros::ADIDigitalOut wings('A');
-// pros::ADIDigitalOut blocker('B');
+pros::ADIDigitalOut hang('B');
+
 
 // Chassis constructor
 Drive chassis (
   // Left Chassis Ports (negative port will reverse it!)
   //   the first port is the sensored port (when trackers are not used!)
-  {-3, -1, -6}
+  {-20, -9, -10}
 
   // Right Chassis Ports (negative port will reverse it!)
   //   the first port is the sensored port (when trackers are not used!)
-  ,{8, 9, 7}
+  ,{12, 2, 1}
 
   // IMU Port
-  ,11
+  ,13
 
   // Wheel Diameter (Remember, 4" wheels are actually 4.125!)
   //    (or tracking wheel diameter)
@@ -47,7 +48,7 @@ Drive chassis (
   //    (or gear ratio of tracking wheel)
   // eg. if your drive is 84:36 where the 36t is powered, your RATIO would be 2.333.
   // eg. if your drive is 36:60 where the 60t is powered, your RATIO would be 0.6.
-  ,1.5
+  ,1.333
 
 
   // Uncomment if using tracking wheels

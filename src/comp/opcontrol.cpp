@@ -22,13 +22,16 @@
     // This is preference to what you like to drive on.
     chassis.set_drive_brake(MOTOR_BRAKE_COAST);
 
+
+
     bool wingState = false;
     wings.set_value(wingState);
 
+    bool hangState = false;
+    hang.set_value(hangState);
+
     // bool blockerState = false;
     // blocker.set_value(blockerState);
-
-    bool intakeState = false;
 
     bool cataState = false;
 
@@ -42,10 +45,19 @@
         // chassis.arcade_flipped(ez::SINGLE); // Flipped single arcade
 
         //Wing Control
-        if (master.get_digital_new_press(DIGITAL_R1)){
+        if (master.get_digital_new_press(DIGITAL_X)){
         wingState = !wingState;
         wings.set_value(wingState);
         }
+
+
+
+        //Hang Control
+        if (master.get_digital_new_press(DIGITAL_UP)){
+        hangState = !hangState;
+        hang.set_value(hangState);
+        }
+
 
         // //Blocker Control
         // if (master.get_digital_new_press(DIGITAL_R2)){
@@ -59,19 +71,17 @@
         }
 
         if (cataState == true){
-            cata.move_voltage(10000);
+            cata.move_voltage(12000);
         }else{
             cata.move_voltage(0);
         }
 
         //Intake Control
-        if (master.get_digital_new_press(DIGITAL_L2)){
-            intakeState = !intakeState;
-        }
-
-        if (intakeState == true){
+        if (master.get_digital(DIGITAL_R2)){
             intake.move_voltage(12000);
-        }else{
+        }else if (master.get_digital(DIGITAL_R1))
+            intake.move_voltage(-12000);
+        else{
             intake.move_voltage(0);
         }
 

@@ -15,7 +15,7 @@ extern pros::Motor motors[8];
 extern pros::IMU imu;
 
 //Pneumatics
-extern pros::ADIDigitalOut wings;
+extern pros::ADIDigitalOut wings, hang;
 
 //Chassis
 extern Drive chassis;

@@ -6,6 +6,7 @@
 #include "robot/subsystems/controllers/flywheelController.hpp"
 #include "robot/subsystems/managers/pneumaticManager.hpp"
 
+
 /**
  * Runs initialization code. This occurs as soon as the program is started.
  *
@@ -21,14 +22,15 @@ void initialize() {
 	// flywheelInit();pros
 
 	cata.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+	wings.set_value(false);
 
 
 
 	chassis.set_slew_min_power(70, 70);
 	chassis.set_slew_distance(7, 7);
 	chassis.set_pid_constants(&chassis.headingPID, 11, 0, 20, 0);
-	chassis.set_pid_constants(&chassis.forward_drivePID, 0.5, 0, 5, 0);
-	chassis.set_pid_constants(&chassis.backward_drivePID, 0.61, 0, 5, 0);
+	chassis.set_pid_constants(&chassis.forward_drivePID, 1.5, 10, 0.5, 4);
+	chassis.set_pid_constants(&chassis.backward_drivePID, 1.5, 10, 0.5, 3.3);
 	chassis.set_pid_constants(&chassis.turnPID, 5.3, 0.003, 41, 15);
 	chassis.set_pid_constants(&chassis.swingPID, 7, 0, 45, 0);
 
