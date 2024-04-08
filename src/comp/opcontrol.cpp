@@ -22,18 +22,14 @@
     // This is preference to what you like to drive on.
     chassis.set_drive_brake(MOTOR_BRAKE_COAST);
 
+    bool wing1State = false;
+    wings1.set_value(wing1State);
 
+    bool wing2State = false;
+    wings2.set_value(wing2State);
 
-    bool wingState = false;
-    wings.set_value(wingState);
-
-    bool hangState = false;
-    hang.set_value(hangState);
-
-    // bool blockerState = false;
-    // blocker.set_value(blockerState);
-
-    bool cataState = false;
+    bool rachetState = false;
+    rachet.set_value(rachetState);
 
 
     while (true) {
@@ -44,36 +40,33 @@
         // chassis.arcade_flipped(ez::SPLIT); // Flipped split arcade
         // chassis.arcade_flipped(ez::SINGLE); // Flipped single arcade
 
-        //Wing Control
-        if (master.get_digital_new_press(DIGITAL_X)){
-        wingState = !wingState;
-        wings.set_value(wingState);
+        //Front Wings Cotrol
+        if (master.get_digital_new_press(DIGITAL_L2)){
+        wing1State = !wing1State;
+        wings1.set_value(wing1State);
         }
 
+        //Back Wings Control
+        if (master.get_digital_new_press(DIGITAL_L1)){
+        wing2State = !wing2State;
+        wings2.set_value(wing2State);
+        }
 
+        //Rachet Control
+        if (master.get_digital_new_press(DIGITAL_A)){
+        rachetState = !rachetState;
+        rachet.set_value(rachetState);
+        }
 
         //Hang Control
-        if (master.get_digital_new_press(DIGITAL_UP)){
-        hangState = !hangState;
-        hang.set_value(hangState);
-        }
-
-
-        // //Blocker Control
-        // if (master.get_digital_new_press(DIGITAL_R2)){
-        // blockerState = !blockerState;
-        // blocker.set_value(blockerState);
-        // }
-
-        //Catapult controll
-        if (master.get_digital_new_press(DIGITAL_L1)){
-            cataState = !cataState;
-        }
-
-        if (cataState == true){
-            cata.move_voltage(12000);
+        if (master.get_digital(DIGITAL_DOWN)){
+            hang.move_voltage(12000);
+            hang.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+        }else if (master.get_digital(DIGITAL_UP)){
+            hang.move_voltage(-12000);
+            hang.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
         }else{
-            cata.move_voltage(0);
+            hang.move_voltage(0);
         }
 
         //Intake Control

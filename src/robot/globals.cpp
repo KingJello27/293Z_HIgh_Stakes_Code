@@ -4,37 +4,38 @@
 Controller master(E_CONTROLLER_MASTER);
 
 //Motors
-Motor leftFront(20, E_MOTOR_GEARSET_06, false, E_MOTOR_ENCODER_DEGREES); 
-Motor leftMiddle(9, E_MOTOR_GEARSET_06, false, E_MOTOR_ENCODER_DEGREES); 
-Motor leftBack(10, E_MOTOR_GEARSET_06, false, E_MOTOR_ENCODER_DEGREES);
-Motor rightFront(12, E_MOTOR_GEARSET_06, true, E_MOTOR_ENCODER_DEGREES); 
-Motor rightMiddle(2, E_MOTOR_GEARSET_06, true, E_MOTOR_ENCODER_DEGREES); 
-Motor rightBack(1, E_MOTOR_GEARSET_06, true, E_MOTOR_ENCODER_DEGREES); 
+Motor leftFront(20, E_MOTOR_GEAR_GREEN, false, E_MOTOR_ENCODER_DEGREES); 
+Motor leftMiddle(10, E_MOTOR_GEAR_GREEN, false, E_MOTOR_ENCODER_DEGREES); 
+Motor leftBack(3, E_MOTOR_GEAR_GREEN, false, E_MOTOR_ENCODER_DEGREES);
+Motor rightFront(13, E_MOTOR_GEAR_GREEN, true, E_MOTOR_ENCODER_DEGREES); 
+Motor rightMiddle(2, E_MOTOR_GEAR_GREEN, true, E_MOTOR_ENCODER_DEGREES); 
+Motor rightBack(8, E_MOTOR_GEAR_GREEN, true, E_MOTOR_ENCODER_DEGREES); 
 
-Motor cata(14, E_MOTOR_GEARSET_36, true, E_MOTOR_ENCODER_DEGREES); 
-Motor intake(11, E_MOTOR_GEARSET_36, true, E_MOTOR_ENCODER_DEGREES); 
+Motor hang(9, E_MOTOR_GEAR_RED, false, E_MOTOR_ENCODER_DEGREES); 
+Motor intake(1, E_MOTOR_GEAR_BLUE, false, E_MOTOR_ENCODER_DEGREES); 
 
 Imu imu(13);
 
-Motor motors[8] = {leftFront, leftMiddle, leftBack, rightFront, rightMiddle, rightBack, cata, intake};
+Motor motors[8] = {leftFront, leftMiddle, leftBack, rightFront, rightMiddle, rightBack, hang, intake};
 
 //Pneumatics
-pros::ADIDigitalOut wings('A');
-pros::ADIDigitalOut hang('B');
+pros::ADIDigitalOut wings1('B');
+pros::ADIDigitalOut wings2('A');
+pros::ADIDigitalOut rachet('H');
 
 
 // Chassis constructor
 Drive chassis (
   // Left Chassis Ports (negative port will reverse it!)
   //   the first port is the sensored port (when trackers are not used!)
-  {-20, -9, -10}
+  {-20, -10, -3}
 
   // Right Chassis Ports (negative port will reverse it!)
   //   the first port is the sensored port (when trackers are not used!)
-  ,{12, 2, 1}
+  ,{13, 2, 8}
 
   // IMU Port
-  ,13
+  ,11
 
   // Wheel Diameter (Remember, 4" wheels are actually 4.125!)
   //    (or tracking wheel diameter)

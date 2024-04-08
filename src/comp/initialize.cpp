@@ -21,16 +21,22 @@ void initialize() {
 	autonMenuInit();
 	// flywheelInit();pros
 
-	cata.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
-	wings.set_value(false);
+	wings1.set_value(false);
+	wings2.set_value(false);
+	rachet.set_value(true);
 
 
+
+	//P = How fast it reacts (More is more sensitive and unstable)
+	//I = How soon it considers its done (More means its finishes faster and less time for sdjustments)
+	//D = How much it changes (More means it changes more)
 
 	chassis.set_slew_min_power(70, 70);
 	chassis.set_slew_distance(7, 7);
 	chassis.set_pid_constants(&chassis.headingPID, 11, 0, 20, 0);
-	chassis.set_pid_constants(&chassis.forward_drivePID, 1.5, 10, 0.5, 4);
-	chassis.set_pid_constants(&chassis.backward_drivePID, 1.5, 10, 0.5, 3.3);
+	chassis.set_pid_constants(&chassis.forward_drivePID, 2.25, 1.5, 2, 1.75);
+	chassis.set_pid_constants(&chassis.backward_drivePID, 2.25, 1.5, 2, 1.75);
+	//	chassis.set_pid_constants(&chassis.backward_drivePID, 10, 5, -14, 1.75);
 	chassis.set_pid_constants(&chassis.turnPID, 5.3, 0.003, 41, 15);
 	chassis.set_pid_constants(&chassis.swingPID, 7, 0, 45, 0);
 

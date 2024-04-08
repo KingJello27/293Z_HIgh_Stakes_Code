@@ -7,7 +7,7 @@
 extern Controller master;
 
 //Motors
-extern pros::Motor cata;
+extern pros::Motor hang;
 extern pros::Motor intake;
 extern pros::Motor motors[8];
 
@@ -15,7 +15,7 @@ extern pros::Motor motors[8];
 extern pros::IMU imu;
 
 //Pneumatics
-extern pros::ADIDigitalOut wings, hang;
+extern pros::ADIDigitalOut wings1, wings2, rachet;
 
 //Chassis
 extern Drive chassis;
