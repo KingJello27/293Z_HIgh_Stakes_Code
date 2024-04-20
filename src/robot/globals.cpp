@@ -4,12 +4,12 @@
 Controller master(E_CONTROLLER_MASTER);
 
 //Motors
-Motor leftFront(20, E_MOTOR_GEAR_GREEN, false, E_MOTOR_ENCODER_DEGREES); 
+Motor leftFront(8, E_MOTOR_GEAR_GREEN, false, E_MOTOR_ENCODER_DEGREES); 
 Motor leftMiddle(10, E_MOTOR_GEAR_GREEN, false, E_MOTOR_ENCODER_DEGREES); 
-Motor leftBack(3, E_MOTOR_GEAR_GREEN, false, E_MOTOR_ENCODER_DEGREES);
+Motor leftBack(7, E_MOTOR_GEAR_GREEN, false, E_MOTOR_ENCODER_DEGREES);
 Motor rightFront(13, E_MOTOR_GEAR_GREEN, true, E_MOTOR_ENCODER_DEGREES); 
-Motor rightMiddle(2, E_MOTOR_GEAR_GREEN, true, E_MOTOR_ENCODER_DEGREES); 
-Motor rightBack(8, E_MOTOR_GEAR_GREEN, true, E_MOTOR_ENCODER_DEGREES); 
+Motor rightMiddle(14, E_MOTOR_GEAR_GREEN, true, E_MOTOR_ENCODER_DEGREES); 
+Motor rightBack(2, E_MOTOR_GEAR_GREEN, true, E_MOTOR_ENCODER_DEGREES); 
 
 Motor hang(9, E_MOTOR_GEAR_RED, false, E_MOTOR_ENCODER_DEGREES); 
 Motor intake(1, E_MOTOR_GEAR_BLUE, false, E_MOTOR_ENCODER_DEGREES); 
@@ -28,11 +28,11 @@ pros::ADIDigitalOut rachet('H');
 Drive chassis (
   // Left Chassis Ports (negative port will reverse it!)
   //   the first port is the sensored port (when trackers are not used!)
-  {-20, -10, -3}
+  {-8, -10, -7}
 
   // Right Chassis Ports (negative port will reverse it!)
   //   the first port is the sensored port (when trackers are not used!)
-  ,{13, 2, 8}
+  ,{13, 14, 2}
 
   // IMU Port
   ,11

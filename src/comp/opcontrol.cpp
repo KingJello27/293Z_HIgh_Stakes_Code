@@ -47,13 +47,13 @@
         }
 
         //Back Wings Control
-        if (master.get_digital_new_press(DIGITAL_L1)){
+        if (master.get_digital_new_press(DIGITAL_UP)){
         wing2State = !wing2State;
         wings2.set_value(wing2State);
         }
 
         //Rachet Control
-        if (master.get_digital_new_press(DIGITAL_A)){
+        if (master.get_digital_new_press(DIGITAL_B)){
         rachetState = !rachetState;
         rachet.set_value(rachetState);
         }
@@ -62,7 +62,7 @@
         if (master.get_digital(DIGITAL_DOWN)){
             hang.move_voltage(12000);
             hang.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
-        }else if (master.get_digital(DIGITAL_UP)){
+        }else if (master.get_digital(DIGITAL_L1)){
             hang.move_voltage(-12000);
             hang.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
         }else{
