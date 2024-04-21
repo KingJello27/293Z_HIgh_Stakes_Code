@@ -14,7 +14,7 @@ Motor rightBack(2, E_MOTOR_GEAR_GREEN, true, E_MOTOR_ENCODER_DEGREES);
 Motor hang(9, E_MOTOR_GEAR_RED, false, E_MOTOR_ENCODER_DEGREES); 
 Motor intake(1, E_MOTOR_GEAR_BLUE, false, E_MOTOR_ENCODER_DEGREES); 
 
-Imu imu(13);
+Imu imu(11);
 
 Motor motors[8] = {leftFront, leftMiddle, leftBack, rightFront, rightMiddle, rightBack, hang, intake};
 

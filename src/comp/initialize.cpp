@@ -21,9 +21,11 @@ void initialize() {
 	autonMenuInit();
 	// flywheelInit();pros
 
+	imu.reset();
+
 	wings1.set_value(false);
 	wings2.set_value(false);
-	rachet.set_value(true);
+	rachet.set_value(false);
 
 
 
@@ -33,10 +35,12 @@ void initialize() {
 
 	chassis.set_slew_min_power(70, 70);
 	chassis.set_slew_distance(7, 7);
-	chassis.set_pid_constants(&chassis.headingPID, 11, 0, 20, 0);
-	chassis.set_pid_constants(&chassis.forward_drivePID, 2.25, 1.5, 2, 1.75);
-	chassis.set_pid_constants(&chassis.backward_drivePID, 2.25, 1.5, 2, 1.75);
-	//	chassis.set_pid_constants(&chassis.backward_drivePID, 10, 5, -14, 1.75);
+	chassis.set_pid_constants(&chassis.headingPID, 1, 1, 1, 1);
+	// 11 0 20 0
+	chassis.set_pid_constants(&chassis.forward_drivePID, 1, 1, 1, 1);
+	// 2.25 1.5 2 1.75
+	chassis.set_pid_constants(&chassis.backward_drivePID, 1, 1, 1, 1);
+	//	chassis.set_pid_constants(&chassis.backward_drivePID, 2.25, 1.5, 2, 1.75);
 	chassis.set_pid_constants(&chassis.turnPID, 5.3, 0.003, 41, 15);
 	chassis.set_pid_constants(&chassis.swingPID, 7, 0, 45, 0);
 
