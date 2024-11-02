@@ -1,41 +1,40 @@
-#include "main.h"
+#include "main.h" // IWYU pragma: keep
+#include "ladybrown.h" // IWYU pragma: keep
 
 //Controller
 Controller master(E_CONTROLLER_MASTER);
 
 //Motors
-Motor leftFront(8, E_MOTOR_GEAR_GREEN, false, E_MOTOR_ENCODER_DEGREES); 
-Motor leftMiddle(10, E_MOTOR_GEAR_GREEN, false, E_MOTOR_ENCODER_DEGREES); 
-Motor leftBack(7, E_MOTOR_GEAR_GREEN, false, E_MOTOR_ENCODER_DEGREES);
-Motor rightFront(13, E_MOTOR_GEAR_GREEN, true, E_MOTOR_ENCODER_DEGREES); 
-Motor rightMiddle(14, E_MOTOR_GEAR_GREEN, true, E_MOTOR_ENCODER_DEGREES); 
-Motor rightBack(2, E_MOTOR_GEAR_GREEN, true, E_MOTOR_ENCODER_DEGREES); 
-
-Motor hang(9, E_MOTOR_GEAR_RED, false, E_MOTOR_ENCODER_DEGREES); 
+Motor leftFront(13, E_MOTOR_GEAR_GREEN, true, E_MOTOR_ENCODER_DEGREES); 
+Motor leftMiddle(12, E_MOTOR_GEAR_GREEN, true, E_MOTOR_ENCODER_DEGREES); 
+Motor leftBack(20, E_MOTOR_GEAR_GREEN, true, E_MOTOR_ENCODER_DEGREES);
+Motor rightFront(14, E_MOTOR_GEAR_GREEN, false, E_MOTOR_ENCODER_DEGREES); 
+Motor rightMiddle(15, E_MOTOR_GEAR_GREEN, false, E_MOTOR_ENCODER_DEGREES); 
+Motor rightBack(19, E_MOTOR_GEAR_GREEN, false, E_MOTOR_ENCODER_DEGREES); 
+ 
 Motor intake(1, E_MOTOR_GEAR_BLUE, false, E_MOTOR_ENCODER_DEGREES); 
 
-Imu imu(11);
+Imu imu(16);
 
-Motor motors[8] = {leftFront, leftMiddle, leftBack, rightFront, rightMiddle, rightBack, hang, intake};
+pros::Motor motors[7] = {leftFront, leftMiddle, leftBack, rightFront, rightMiddle, rightBack, intake};
 
 //Pneumatics
-pros::ADIDigitalOut wings1('B');
-pros::ADIDigitalOut wings2('A');
-pros::ADIDigitalOut rachet('H');
+pros::ADIDigitalOut tilter('B');
+pros::ADIDigitalOut doinker('A');
 
 
 // Chassis constructor
 Drive chassis (
   // Left Chassis Ports (negative port will reverse it!)
   //   the first port is the sensored port (when trackers are not used!)
-  {-8, -10, -7}
+  {-13, -12, -20}
 
   // Right Chassis Ports (negative port will reverse it!)
   //   the first port is the sensored port (when trackers are not used!)
-  ,{13, 14, 2}
+  ,{14, 15, 19}
 
   // IMU Port
-  ,11
+  ,16
 
   // Wheel Diameter (Remember, 4" wheels are actually 4.125!)
   //    (or tracking wheel diameter)

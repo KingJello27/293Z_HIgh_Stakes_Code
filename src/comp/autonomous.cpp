@@ -1,9 +1,9 @@
 #include "pros/rtos.hpp"
 #include "robot/globals.hpp"
 #include "graphics/managers/autonManager.hpp"
-#include "robot/subsystems/controllers/flywheelController.hpp"
-#include "robot/subsystems/managers/pneumaticManager.hpp"
-#include <algorithm>
+#include "robot/subsystems/controllers/flywheelController.hpp" // IWYU pragma: keep
+#include "robot/subsystems/managers/pneumaticManager.hpp" // IWYU pragma: keep
+#include <algorithm> // IWYU pragma: keep
 
 
 void tug (int attempts) {
@@ -42,105 +42,18 @@ void autonomous() {
     switch(autonIndex){
         case 0: 
 
-           //Close Side AWP
-            
-            intake.move_relative(-1800,12000);
-            chassis.set_drive_pid(-2.75,100);
-            chassis.wait_drive();
-            chassis.set_swing_pid(ez::RIGHT_SWING,45,127);
-            chassis.wait_drive();
-            chassis.set_drive_pid(-3.4,100);
-            chassis.wait_drive();
-            chassis.set_drive_pid(4.5,100);
-            chassis.wait_drive();
-            chassis.set_turn_pid(10,90);
-            chassis.wait_drive();
-            wings2.set_value(true);
-            pros::delay(100);
-            chassis.set_drive_pid(5,100);
-            chassis.wait_drive();
-            chassis.set_turn_pid(-45,127);
-            chassis.wait_drive();
-            chassis.set_drive_pid(16,100);
-            chassis.wait_drive();
-
 
             break;
         case 1:
     
-            //Far Side 6 Ball
-
-            intake.move_velocity(-12000);
-            pros::delay(1000);
-            intake.move_velocity(0);
-            chassis.set_drive_pid(-13,100);
-            chassis.wait_drive();
-            wings2.set_value(true);
-            pros::delay(100);
-            chassis.set_swing_pid(ez::LEFT_SWING,-45,90);
-            chassis.wait_drive();
-            chassis.set_turn_pid(0.5,90);
-            chassis.wait_drive();
-            chassis.set_drive_pid(-2,100);
-            chassis.wait_drive();
-            chassis.set_swing_pid(ez::LEFT_SWING,-90,80);
-            chassis.wait_drive();
             
-
-            chassis.set_drive_pid(-9,100);
-            chassis.wait_drive();
-            chassis.set_drive_pid(6,100);
-            chassis.wait_drive();
-            chassis.set_turn_pid(100,90);
-            chassis.wait_drive();
-            intake.move_velocity(12000);
-            chassis.set_drive_pid(8,100);
-            chassis.wait_drive();
-            chassis.set_drive_pid(-3,100);
-            chassis.wait_drive();
-            wings2.set_value(false);
-            pros::delay(100);
-
-            chassis.set_turn_pid(20,90);
-            chassis.wait_drive();
-            intake.move_velocity(-12000);
-            chassis.set_drive_pid(18.5,100);
-            chassis.wait_drive();
-            pros::delay(500);
-            intake.move_velocity(0);
-            chassis.set_turn_pid(165,90);
-            chassis.wait_drive();
-            intake.move_velocity(12000);
-            pros::delay(500);
-
-            intake.move_velocity(-12000);
-            chassis.set_turn_pid(70,90);
-            chassis.wait_drive();
-            chassis.set_drive_pid(7,100);
-            chassis.wait_drive();
-            pros::delay(350);
-            intake.move_velocity(0);
-            chassis.set_turn_pid(180,90);
-            chassis.wait_drive();
-            intake.move_velocity(12000);
-            wings1.set_value(true);
-            chassis.set_drive_pid(14,100);
-            chassis.wait_drive();
-            chassis.set_drive_pid(-9.5,100);
-           
-
-
             break;
         case 2:
-
-            //Far Side AWP
-           
 
             
             break;
         case 3:
 
-            //Close Side Mess Up
            
             break;
         case 4:

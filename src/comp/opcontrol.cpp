@@ -1,9 +1,9 @@
 #include "main.h"
 #include "robot/globals.hpp"
-#include "robot/subsystems/controllers/flywheelController.hpp"
-#include "robot/subsystems/managers/pneumaticManager.hpp"
-#include <string>
-
+#include "robot/subsystems/controllers/flywheelController.hpp" // IWYU pragma: keep
+#include "robot/subsystems/managers/pneumaticManager.hpp" // IWYU pragma: keep
+#include <string> // IWYU pragma: keep
+#include "ladybrown.h"
     /**
  * Runs the operator control code. This function will be started in its own task
  * with the default priority and stack size whenever the robot is enabled via
@@ -19,67 +19,120 @@
  */
  
     void opcontrol() {
-    // This is preference to what you like to drive on.
-    chassis.set_drive_brake(MOTOR_BRAKE_COAST);
 
-    bool wing1State = false;
-    wings1.set_value(wing1State);
+    int counter = 0;
+    bool tilterState = false;
+    tilter.set_value(tilterState);
 
-    bool wing2State = false;
-    wings2.set_value(wing2State);
+    bool doinkerState = false;
+    doinker.set_value(doinkerState);
 
-    bool rachetState = false;
-    rachet.set_value(rachetState);
+    // bool grmState = false;
+    // grm.set_value(grmState);
+
+    // //Lady Brown
+    // const int start = 0;  
+    // const int receive = 22; 
+    // const int score = 145; 
+    // rotationSensor.reset_position();
+    // int currentPosition = 1;
 
 
+    // loop forever
     while (true) {
 
-        chassis.tank(); // Tank control
+        //chassis.tank(); // Tank control
         // chassis.arcade_standard(ez::SPLIT); // Standard split arcade
-        // chassis.arcade_standard(ez::SINGLE); // Standard single arcade
+        chassis.arcade_standard(ez::SINGLE); // Standard single arcade
         // chassis.arcade_flipped(ez::SPLIT); // Flipped split arcade
         // chassis.arcade_flipped(ez::SINGLE); // Flipped single arcade
 
-        //Front Wings Cotrol
-        if (master.get_digital_new_press(DIGITAL_L2)){
-        wing1State = !wing1State;
-        wings1.set_value(wing1State);
+        // //Rotation Sensor -> Lady Brown Motor
+        // rotationSensor.get_position();
+        
+
+        // //Shift Key
+        // if (controller.get_digital(DIGITAL_L1)){
+
+        //     // //Intake Supressor
+        //     // intake.move_voltage(0);
+
+        //     // //Tilter Supressor
+        //     // tilt1.set_value(false);
+        //     // tilt2.set_value(false);
+
+        //     //Lift Control
+        //     // if (controller.get_digital_new_press(DIGITAL_R1)){
+                
+        //     // }
+            
+
+        //     // //Goal Rush Mech Control
+        //     // if (controller.get_digital_new_press(DIGITAL_L2)){
+        //     // grmState = !grmState;
+        //     // grm.set_value(grmState);
+        //     // }
+        // }
+
+        //Tilter Control
+        if (master.get_digital_new_press(DIGITAL_L1)){
+        tilterState = !tilterState;
+        tilter.set_value(tilterState);
         }
 
-        //Back Wings Control
+        //Doinker Control
         if (master.get_digital_new_press(DIGITAL_UP)){
-        wing2State = !wing2State;
-        wings2.set_value(wing2State);
+        doinkerState = !doinkerState;
+        doinker.set_value(doinkerState);
         }
 
-        //Rachet Control
-        if (master.get_digital_new_press(DIGITAL_B)){
-        rachetState = !rachetState;
-        rachet.set_value(rachetState);
-        }
-
-        //Hang Control
-        if (master.get_digital(DIGITAL_DOWN)){
-            hang.move_voltage(12000);
-            hang.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
-        }else if (master.get_digital(DIGITAL_L1)){
-            hang.move_voltage(-12000);
-            hang.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
-        }else{
-            hang.move_voltage(0);
-        }
+        // //Goal Rush Mech Control
+        // if (controller.get_digital_new_press(DIGITAL_L2)){
+        // grmState = !grmState;
+        // grm.set_value(grmState);
+        // }
 
         //Intake Control
         if (master.get_digital(DIGITAL_R2)){
-            intake.move_voltage(12000);
+            intake.move_voltage(-10000);
         }else if (master.get_digital(DIGITAL_R1))
-            intake.move_voltage(-12000);
+            intake.move_voltage(10000);
         else{
             intake.move_voltage(0);
         }
 
+        //Lady Brown
+        if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_L2)) {
+            if (counter == 0) {
+                setPosition(30);
+            }
+            else if (counter == 1) {
+                setPosition(130);
+            }
+            else if (counter == 2) {
+                setPosition(0);
+            }
+            counter ++;
+            counter = counter % 3;
+        }
 
-        pros::delay(20);
+//         //Color Sorter
+//         rgb_value = opticalSensor.get_rgb();
+//             //Blue
+//             if (rgb_value.blue){
+//                 colorPicker.set_value(true);
+//                 pros::delay(800);
+//                 colorPicker.set_value(false);
+// ;            }
 
+//             //Red
+//             if (rgb_value.red){
+//                 colorPicker.set_value(true);
+//                 pros::delay(800);
+//                 colorPicker.set_value(false);
+//             }
+
+        // delay to save resources
+        pros::delay(25);
     }
 }

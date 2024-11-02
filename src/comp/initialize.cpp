@@ -1,11 +1,11 @@
 #include "graphics/managers/autonManager.hpp"
 #include "graphics/managers/displayManager.hpp"
 #include "graphics/graphics.hpp"
-#include "okapi/api/device/motor/abstractMotor.hpp"
+#include "okapi/api/device/motor/abstractMotor.hpp" // IWYU pragma: keep
 #include "robot/globals.hpp"
-#include "robot/subsystems/controllers/flywheelController.hpp"
-#include "robot/subsystems/managers/pneumaticManager.hpp"
-
+#include "robot/subsystems/controllers/flywheelController.hpp" // IWYU pragma: keep
+#include "robot/subsystems/managers/pneumaticManager.hpp" // IWYU pragma: keep
+#include "ladybrown.h"
 
 /**
  * Runs initialization code. This occurs as soon as the program is started.
@@ -19,14 +19,13 @@ void initialize() {
 	displayInit();
 	graphicsInit();
 	autonMenuInit();
+	ladyBrownInit();
 	// flywheelInit();pros
 
 	imu.reset();
 
-	wings1.set_value(false);
-	wings2.set_value(false);
-	rachet.set_value(false);
-
+	tilter.set_value(false);
+	doinker.set_value(false);
 
 
 	//P = How fast it reacts (More is more sensitive and unstable)

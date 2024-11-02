@@ -1,13 +1,12 @@
 #pragma once
-#include "main.h"
-#include "pros/adi.hpp"
-#include "pros/distance.hpp"
+#include "main.h" // IWYU pragma: keep
+#include "pros/adi.hpp" // IWYU pragma: keep
+#include "pros/distance.hpp" // IWYU pragma: keep
 
 //Controller
 extern Controller master;
 
 //Motors
-extern pros::Motor hang;
 extern pros::Motor intake;
 extern pros::Motor motors[8];
 
@@ -15,7 +14,7 @@ extern pros::Motor motors[8];
 extern pros::IMU imu;
 
 //Pneumatics
-extern pros::ADIDigitalOut wings1, wings2, rachet;
+extern pros::ADIDigitalOut tilter, doinker;
 
 //Chassis
 extern Drive chassis;
