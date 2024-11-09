@@ -42,8 +42,8 @@
     while (true) {
 
         //chassis.tank(); // Tank control
-        // chassis.arcade_standard(ez::SPLIT); // Standard split arcade
-        chassis.arcade_standard(ez::SINGLE); // Standard single arcade
+        chassis.arcade_standard(ez::SPLIT); // Standard split arcade
+        // chassis.arcade_standard(ez::SINGLE); // Standard single arcade
         // chassis.arcade_flipped(ez::SPLIT); // Flipped split arcade
         // chassis.arcade_flipped(ez::SINGLE); // Flipped single arcade
 
@@ -102,15 +102,32 @@
         }
 
         //Lady Brown
+        // if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_L2)) {
+        //     if (counter == 0) {
+        //         setPosition(30);
+        //     }
+        //     else if (counter == 1) {
+        //         setPosition(130);
+        //     }
+        //     else if (counter == 2) {
+        //         setPosition(0);
+        //     }
+        //     counter ++;
+        //     counter = counter % 3;
+        // }
+
         if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_L2)) {
             if (counter == 0) {
-                setPosition(30);
+                ladyBrown1.move_absolute(140,127);
+                ladyBrown2.move_absolute(140,127);
             }
             else if (counter == 1) {
-                setPosition(130);
+                ladyBrown1.move_absolute(735,127);
+                ladyBrown2.move_absolute(735,127);
             }
             else if (counter == 2) {
-                setPosition(0);
+                ladyBrown1.move_absolute(0,127);
+                ladyBrown2.move_absolute(0,127);
             }
             counter ++;
             counter = counter % 3;

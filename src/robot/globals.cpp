@@ -16,6 +16,9 @@ Motor intake(1, E_MOTOR_GEAR_BLUE, false, E_MOTOR_ENCODER_DEGREES);
 
 Imu imu(16);
 
+Motor ladyBrown1(5, E_MOTOR_GEAR_GREEN, false, E_MOTOR_ENCODER_DEGREES);
+Motor ladyBrown2(-4, E_MOTOR_GEAR_GREEN, true, E_MOTOR_ENCODER_DEGREES);
+
 pros::Motor motors[7] = {leftFront, leftMiddle, leftBack, rightFront, rightMiddle, rightBack, intake};
 
 //Pneumatics

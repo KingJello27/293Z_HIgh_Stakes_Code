@@ -19,7 +19,9 @@ void initialize() {
 	displayInit();
 	graphicsInit();
 	autonMenuInit();
-	ladyBrownInit();
+	// ladyBrownInit();
+	ladyBrown1.tare_position();
+	ladyBrown2.tare_position();
 	// flywheelInit();pros
 
 	imu.reset();
@@ -36,7 +38,7 @@ void initialize() {
 	chassis.set_slew_distance(7, 7);
 	chassis.set_pid_constants(&chassis.headingPID, 1, 1, 1, 1);
 	// 11 0 20 0
-	chassis.set_pid_constants(&chassis.forward_drivePID, 1, 1, 1, 1);
+	chassis.set_pid_constants(&chassis.forward_drivePID, 2, 0.015, 0.07, 1.75);
 	// 2.25 1.5 2 1.75
 	chassis.set_pid_constants(&chassis.backward_drivePID, 1, 1, 1, 1);
 	//	chassis.set_pid_constants(&chassis.backward_drivePID, 2.25, 1.5, 2, 1.75);
