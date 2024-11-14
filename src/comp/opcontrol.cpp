@@ -140,21 +140,21 @@
 
          rgb_value = optical_sensor.get_rgb();
 
-        if (colorIndex() % 2 == 0) {
-            if (rgb_value.blue){
-                color.set_value(true);
-                pros::delay(800);
-                color.set_value(false);
-            }
-        }
+        // if (colorIndex() % 2 == 0) {
+        //     if (rgb_value.blue){
+        //         color.set_value(true);
+        //         pros::delay(800);
+        //         color.set_value(false);
+        //     }
+        // }
 
-        if (colorIndex() % 2 != 0) {
-            if (rgb_value.red){
-                color.set_value(true);
-                pros::delay(800);
-                color.set_value(false);
-            }
-        }
+        // if (colorIndex() % 2 != 0) {
+        //     if (rgb_value.red){
+        //         color.set_value(true);
+        //         pros::delay(800);
+        //         color.set_value(false);
+        //     }
+        // }
 
 
 
