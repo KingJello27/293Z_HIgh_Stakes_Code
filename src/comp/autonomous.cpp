@@ -230,7 +230,7 @@ void autonomous() {
             pros::delay(750);
 
             //grab first mobile goal
-            chassis.set_drive_pid(1.5, 100);
+            chassis.set_drive_pid(1.25, 100);
             chassis.wait_drive();
             tilter.set_value(true);
             chassis.set_turn_pid(-53,100);
@@ -252,12 +252,12 @@ void autonomous() {
             //score second ring
             chassis.set_turn_pid(90,100);
             chassis.wait_drive();
-            chassis.set_drive_pid(8, 50);
+            chassis.set_drive_pid(6, 50);
             chassis.wait_drive();
             pros::delay(1000);
 
             //touch the pole
-            chassis.set_drive_pid(-5.5, 80);
+            chassis.set_drive_pid(-3.5, 80);
             chassis.wait_drive();
             chassis.set_turn_pid(0,100);
             chassis.wait_drive();
@@ -265,7 +265,7 @@ void autonomous() {
             chassis.wait_drive();
             doinker.set_value(true);
             pros::delay(250);
-            chassis.set_turn_pid(-65,90);
+            chassis.set_turn_pid(-45,90);
             chassis.wait_drive();
             intake.move_velocity(0);
 

@@ -30,5 +30,5 @@ const char* autonDescs[12] = {"Red Left AWP",
 
 //Autonomous Manager Initialization
 void autonInit(){
-  autonIndex=2;
+  autonIndex=3;
 }
