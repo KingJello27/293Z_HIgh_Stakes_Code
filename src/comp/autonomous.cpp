@@ -252,7 +252,7 @@ void autonomous() {
             //score second ring
             chassis.set_turn_pid(90,100);
             chassis.wait_drive();
-            chassis.set_drive_pid(6, 50);
+            chassis.set_drive_pid(7, 50);
             chassis.wait_drive();
             pros::delay(1000);
 
