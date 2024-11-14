@@ -276,8 +276,26 @@ void autonomous() {
         case 4:
         
             //Blue Left Elim
-
-
+            // Grab first goal
+            chassis.set_drive_pid(-24,80);
+            chassis.wait_drive();
+            tilter.set_value(true);
+            pros::delay(1000);
+            // turn to rings + intake
+            chassis.set_turn_pid(135,100);
+            chassis.wait_drive();
+            intake.move_velocity(12000);
+            pros::delay(750);
+            chassis.set_drive_pid(24,80);
+            chassis.wait_drive();
+            chassis.set_swing_pid(ez::LEFT_SWING, 90, 80, true)
+            chassis.wait_drive();
+            chassis.set_drive_pid(-12,80);
+            chassis.wait_drive();
+            chassis.set_swing_pid(ez::LEFT_SWING, -45, 80, true)
+            chassis.wait_drive();
+            pros::delay(2000);
+            intake.move_velocity(0);
 
             break;
         case 5:
