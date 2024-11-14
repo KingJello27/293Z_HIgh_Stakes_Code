@@ -288,11 +288,11 @@ void autonomous() {
             pros::delay(750);
             chassis.set_drive_pid(24,80);
             chassis.wait_drive();
-            chassis.set_swing_pid(ez::LEFT_SWING, 90, 80, true)
+            chassis.set_swing_pid(ez::LEFT_SWING, 90, 80);
             chassis.wait_drive();
             chassis.set_drive_pid(-12,80);
             chassis.wait_drive();
-            chassis.set_swing_pid(ez::LEFT_SWING, -45, 80, true)
+            chassis.set_swing_pid(ez::LEFT_SWING, -45, 80);
             chassis.wait_drive();
             pros::delay(2000);
             intake.move_velocity(0);
