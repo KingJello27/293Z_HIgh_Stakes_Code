@@ -70,6 +70,10 @@ void initialize(void);
 void disabled(void);
 void competition_initialize(void);
 void opcontrol(void);
+
+//Color Sort Value
+int colorIndex();
+
 #ifdef __cplusplus
 }
 #endif

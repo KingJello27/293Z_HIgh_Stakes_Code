@@ -95,7 +95,63 @@ void autonomous() {
 
             break;
         case 1:
-    
+
+            //Blue Right AWP
+
+            //score on alliance stake
+            chassis.set_drive_pid(2.4,80);
+            chassis.wait_drive();
+            chassis.set_turn_pid(90,100);
+            chassis.wait_drive();
+            chassis.set_drive_pid(-1, 60);
+            chassis.wait_drive();
+            intake.move_velocity(12000);
+            pros::delay(750);
+
+            //grab first mobile goal
+            chassis.set_drive_pid(1.25, 100);
+            chassis.wait_drive();
+            tilter.set_value(true);
+            chassis.set_turn_pid(-53,100);
+            chassis.wait_drive();
+            chassis.set_drive_pid(-9.5, 80);
+            chassis.wait_drive();
+            chassis.set_drive_pid(-3.5, 50);
+            chassis.wait_drive();
+            tilter.set_value(false);
+            pros::delay(1000);
+
+            //score first ring
+            chassis.set_turn_pid(-187,70);
+            chassis.wait_drive();
+            chassis.set_drive_pid(7.5,60);
+            chassis.wait_drive();
+            pros::delay(1500);
+
+            //score second ring
+            chassis.set_turn_pid(90,100);
+            chassis.wait_drive();
+            chassis.set_drive_pid(7, 50);
+            chassis.wait_drive();
+            pros::delay(1000);
+
+            //touch the pole
+            chassis.set_drive_pid(-3.5, 80);
+            chassis.wait_drive();
+            chassis.set_turn_pid(0,100);
+            chassis.wait_drive();
+            chassis.set_drive_pid(12.5, 80);
+            chassis.wait_drive();
+            doinker.set_value(true);
+            pros::delay(250);
+            chassis.set_turn_pid(-45,90);
+            chassis.wait_drive();
+            intake.move_velocity(0);
+
+
+            break;
+        case 2:
+
             //Red Right 1/2 AWP
 
             //score on alliance stake
@@ -153,12 +209,13 @@ void autonomous() {
             chassis.wait_drive();
             intake.move_velocity(0);
             
+            
             break;
-        case 2:
+        case 3:
 
             //Blue Left 1/2 AWP
             
-           //score on alliance stake
+            //score on alliance stake
             chassis.set_drive_pid(1.8,80);
             chassis.wait_drive();
             chassis.set_turn_pid(-90,100);
@@ -212,75 +269,24 @@ void autonomous() {
             chassis.set_drive_pid(2.5,80);
             chassis.wait_drive();
             intake.move_velocity(0);
-            
-            
-            break;
-        case 3:
-
-           //Blue Right AWP
-
-            //score on alliance stake
-            chassis.set_drive_pid(2.4,80);
-            chassis.wait_drive();
-            chassis.set_turn_pid(90,100);
-            chassis.wait_drive();
-            chassis.set_drive_pid(-1, 60);
-            chassis.wait_drive();
-            intake.move_velocity(12000);
-            pros::delay(750);
-
-            //grab first mobile goal
-            chassis.set_drive_pid(1.25, 100);
-            chassis.wait_drive();
-            tilter.set_value(true);
-            chassis.set_turn_pid(-53,100);
-            chassis.wait_drive();
-            chassis.set_drive_pid(-9.5, 80);
-            chassis.wait_drive();
-            chassis.set_drive_pid(-3.5, 50);
-            chassis.wait_drive();
-            tilter.set_value(false);
-            pros::delay(1000);
-
-            //score first ring
-            chassis.set_turn_pid(-187,70);
-            chassis.wait_drive();
-            chassis.set_drive_pid(7.5,60);
-            chassis.wait_drive();
-            pros::delay(1500);
-
-            //score second ring
-            chassis.set_turn_pid(90,100);
-            chassis.wait_drive();
-            chassis.set_drive_pid(7, 50);
-            chassis.wait_drive();
-            pros::delay(1000);
-
-            //touch the pole
-            chassis.set_drive_pid(-3.5, 80);
-            chassis.wait_drive();
-            chassis.set_turn_pid(0,100);
-            chassis.wait_drive();
-            chassis.set_drive_pid(12.5, 80);
-            chassis.wait_drive();
-            doinker.set_value(true);
-            pros::delay(250);
-            chassis.set_turn_pid(-45,90);
-            chassis.wait_drive();
-            intake.move_velocity(0);
-
-            
 
             
             break;
         case 4:
-        
+
+            //Red Left Elim
+    
+            break;
+        case 5:
+
             //Blue Left Elim
+
             // Grab first goal
             chassis.set_drive_pid(-24,80);
             chassis.wait_drive();
             tilter.set_value(true);
             pros::delay(1000);
+
             // turn to rings + intake
             chassis.set_turn_pid(135,100);
             chassis.wait_drive();
@@ -296,25 +302,18 @@ void autonomous() {
             chassis.wait_drive();
             pros::delay(2000);
             intake.move_velocity(0);
-
-            break;
-        case 5:
-
-            //Blue Right Elim
-
-
            
             break;
         case 6:
 
-            //Red Left Elim
+            //Red Right Elim
 
 
 
             break;
         case 7:
 
-            //Red Right Elim
+            //Blue Right Elim
 
             
 

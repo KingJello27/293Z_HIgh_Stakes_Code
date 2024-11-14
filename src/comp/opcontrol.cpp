@@ -27,6 +27,7 @@
     bool doinkerState = false;
     doinker.set_value(doinkerState);
 
+
     // bool grmState = false;
     // grm.set_value(grmState);
 
@@ -135,21 +136,27 @@
             counter = counter % 3;
         }
 
-//         //Color Sorter
-//         rgb_value = opticalSensor.get_rgb();
-//             //Blue
-//             if (rgb_value.blue){
-//                 colorPicker.set_value(true);
-//                 pros::delay(800);
-//                 colorPicker.set_value(false);
-// ;            }
+         //Color Sorter
 
-//             //Red
-//             if (rgb_value.red){
-//                 colorPicker.set_value(true);
-//                 pros::delay(800);
-//                 colorPicker.set_value(false);
-//             }
+         rgb_value = optical_sensor.get_rgb();
+
+        if (colorIndex() % 2 == 0) {
+            if (rgb_value.blue){
+                color.set_value(true);
+                pros::delay(800);
+                color.set_value(false);
+            }
+        }
+
+        if (colorIndex() % 2 != 0) {
+            if (rgb_value.red){
+                color.set_value(true);
+                pros::delay(800);
+                color.set_value(false);
+            }
+        }
+
+
 
         // delay to save resources
         pros::delay(25);

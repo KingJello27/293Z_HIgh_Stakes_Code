@@ -16,12 +16,12 @@ const char* autonNames[12] = {"Autonomous 1",
                                         "Autonomous 12"};
 
 const char* autonDescs[12] = {"Red Left AWP",
+                                        "Blue Right AWP",
                                         "Red Right 1/2 AWP",
                                         "Blue Left 1/2 AWP",
-                                        "Blue Right AWP",
                                         "Red Left Elim",
-                                        "Red Right Elim",
                                         "Blue Left Elim",
+                                        "Red Right Elim",
                                         "Blue Right Elim",
                                         "Do Nothing",
                                         "Do Nothing",
@@ -30,5 +30,9 @@ const char* autonDescs[12] = {"Red Left AWP",
 
 //Autonomous Manager Initialization
 void autonInit(){
-  autonIndex=4;
+  autonIndex=5;
+}
+
+int colorIndex(){
+    return autonIndex;
 }
