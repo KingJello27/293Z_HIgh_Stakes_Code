@@ -40,172 +40,266 @@ void autonomous() {
     switch(autonIndex){
         case 0: 
             
-            //Left AWP
+            //Red Left AWP
+            
+            //score on alliance stake
+            chassis.set_drive_pid(1.75,80);
+            chassis.wait_drive();
+            chassis.set_turn_pid(-90,100);
+            chassis.wait_drive();
+            chassis.set_drive_pid(-1.2, 60);
+            chassis.wait_drive();
+            intake.move_velocity(12000);
+            pros::delay(750);
+
+            //grab first mobile goal
+            chassis.set_drive_pid(1.5, 100);
+            chassis.wait_drive();
             tilter.set_value(true);
-            pros::delay(250);
-            chassis.set_drive_pid(-9,60);
+            chassis.set_turn_pid(53,100);
+            chassis.wait_drive();
+            chassis.set_drive_pid(-9.5, 80);
+            chassis.wait_drive();
+            chassis.set_drive_pid(-3, 50);
             chassis.wait_drive();
             tilter.set_value(false);
             pros::delay(1000);
-            intake.move_velocity(12000);
-            pros::delay(1000);
-            chassis.set_turn_pid(75, 60);
-            chassis.wait_drive();
-            chassis.set_drive_pid(8, 60);
-            chassis.wait_drive();
-            pros::delay(1000);
-            intake.move_velocity(0);
-            chassis.set_turn_pid(-10, 60);
-            chassis.wait_drive();
-            chassis.set_drive_pid(8.5, 90);
-            chassis.wait_drive();
-            
-            // chassis.set_turn_pid(-135, 60);
-            // chassis.wait_drive();
-            // tilter.set_value(false);
-            // chassis.set_drive_pid(14.5,100);
-            // chassis.wait_drive();
-            // doinker.set_value(true);
-            // pros::delay(500);
-            // chassis.set_turn_pid(-150,100);
 
-            
+            //score first ring
+            chassis.set_turn_pid(187,70);
+            chassis.wait_drive();
+            chassis.set_drive_pid(8.5,60);
+            chassis.wait_drive();
+            pros::delay(1500);
+
+            //score second ring
+            chassis.set_turn_pid(-90,100);
+            chassis.wait_drive();
+            chassis.set_drive_pid(8, 50);
+            chassis.wait_drive();
+            pros::delay(1000);
+
+            //touch the pole
+            chassis.set_drive_pid(-5.5, 80);
+            chassis.wait_drive();
+            chassis.set_turn_pid(0,100);
+            chassis.wait_drive();
+            chassis.set_drive_pid(12.5, 80);
+            chassis.wait_drive();
+            doinker.set_value(true);
+            pros::delay(250);
+            chassis.set_turn_pid(-65,90);
+            chassis.wait_drive();
+            intake.move_velocity(0);
 
 
             break;
         case 1:
     
-            //Right AWP
+            //Red Right 1/2 AWP
+
+            //score on alliance stake
+            chassis.set_drive_pid(2.4,80);
+            chassis.wait_drive();
+            chassis.set_turn_pid(90,100);
+            chassis.wait_drive();
+            chassis.set_drive_pid(-1, 60);
+            chassis.wait_drive();
+            intake.move_velocity(12000);
+            pros::delay(750);
+
+            //grab first mobile goal
+            chassis.set_drive_pid(1.5, 100);
+            chassis.wait_drive();
             tilter.set_value(true);
-            pros::delay(250);
-            chassis.set_drive_pid(-9,60);
+            chassis.set_turn_pid(-53,100);
+            chassis.wait_drive();
+            chassis.set_drive_pid(-9.5, 80);
+            chassis.wait_drive();
+            chassis.set_drive_pid(-3.5, 50);
             chassis.wait_drive();
             tilter.set_value(false);
             pros::delay(1000);
-            intake.move_velocity(12000);
-            pros::delay(1000);
-            chassis.set_turn_pid(-75, 60);
+
+            //score first ring
+            chassis.set_turn_pid(-184,70);
             chassis.wait_drive();
-            chassis.set_drive_pid(8, 60);
+            chassis.set_drive_pid(8,60);
             chassis.wait_drive();
+            pros::delay(1500);
+
+            //drop off first goal
+            chassis.set_turn_pid(90,100);
+            chassis.wait_drive();
+            chassis.set_drive_pid(-6,90);
+            chassis.wait_drive();
+            tilter.set_value(true);
+            pros::delay(500);
+
+            //grab second mobile goal
+            chassis.set_drive_pid(6,100);
+            chassis.wait_drive();
+            chassis.set_turn_pid(-90,100);
+            chassis.wait_drive();
+            chassis.set_drive_pid(-2.5,80);
+            chassis.wait_drive();
+            chassis.set_turn_pid(-75,100);
+            chassis.wait_drive();
+            chassis.set_drive_pid(-0.7,50);
+            pros::delay(250);
+            tilter.set_value(false);
             pros::delay(1000);
+            chassis.set_drive_pid(2.5,80);
+            chassis.wait_drive();
             intake.move_velocity(0);
-            chassis.set_turn_pid(10, 60);
-            chassis.wait_drive();
-            chassis.set_drive_pid(8.5, 90);
-            chassis.wait_drive();
-
-            // chassis.set_turn_pid(135, 60);
-            // chassis.wait_drive();
-            // tilter.set_value(false);
-            // chassis.set_drive_pid(14.5,100);
-            // chassis.wait_drive();
-            // doinker.set_value(true);
-            // pros::delay(500);
-            // chassis.set_turn_pid(150,100);
-
             
             break;
         case 2:
 
-            // //Red Left AWP
-            // chassis.set_drive_pid(-8.8, 50);
-            // chassis.wait_drive();
-            // chassis.set_turn_pid(-87, 80);
-            // chassis.wait_drive();
-            // chassis.set_drive_pid(-2.8,100);
-            // chassis.wait_drive();
-            // intake.move_velocity(12000);
-            // pros::delay(1500);
-            // chassis.set_drive_pid(3,100);
-            // chassis.wait_drive();
-            // chassis.set_turn_pid(133, 80);
-            // chassis.wait_drive();
-            // tilter.set_value(true);
-            // chassis.set_drive_pid(-11.7,60);
-            // chassis.wait_drive();
-            // tilter.set_value(false);
-            // pros::delay(500);
-            // chassis.set_turn_pid(-8.5, 60);
-            // chassis.wait_drive();
-            // chassis.set_drive_pid(4,70);
-            // chassis.wait_drive();
-            // pros::delay(250);
-            // chassis.set_drive_pid(7,40);
-            // chassis.wait_drive();
-            // pros::delay(800);
-            // chassis.set_turn_pid(-85, 60);
-            // chassis.wait_drive();
-            // chassis.set_drive_pid(5,60);
-            // chassis.wait_drive();
-            // pros::delay(2000);
-            // chassis.set_drive_pid(-4,80);
-            // chassis.wait_drive();
-            // chassis.set_turn_pid(-180, 60);
-            // chassis.wait_drive();
-            // chassis.set_drive_pid(13,80);
-            // chassis.wait_drive();
-            // doinker.set_value(true);
-            // chassis.set_turn_pid(-90, 60);
-            // chassis.wait_drive();
+            //Blue Left 1/2 AWP
+            
+           //score on alliance stake
+            chassis.set_drive_pid(1.8,80);
+            chassis.wait_drive();
+            chassis.set_turn_pid(-90,100);
+            chassis.wait_drive();
+            chassis.set_drive_pid(-1.2, 60);
+            chassis.wait_drive();
+            intake.move_velocity(12000);
+            pros::delay(750);
+
+            //grab first mobile goal
+            chassis.set_drive_pid(1.5, 100);
+            chassis.wait_drive();
+            tilter.set_value(true);
+            chassis.set_turn_pid(53,100);
+            chassis.wait_drive();
+            chassis.set_drive_pid(-9.5, 80);
+            chassis.wait_drive();
+            chassis.set_drive_pid(-3, 50);
+            chassis.wait_drive();
+            tilter.set_value(false);
+            pros::delay(1000);
+
+            //score first ring
+            chassis.set_turn_pid(184,70);
+            chassis.wait_drive();
+            chassis.set_drive_pid(8,65);
+            chassis.wait_drive();
+            pros::delay(1500);
+
+            //drop off first goal
+            chassis.set_turn_pid(-90,70);
+            chassis.wait_drive();
+            chassis.set_drive_pid(-6,90);
+            chassis.wait_drive();
+            tilter.set_value(true);
+            pros::delay(500);
+
+            //grab second mobile goal
+            chassis.set_drive_pid(6,100);
+            chassis.wait_drive();
+            chassis.set_turn_pid(90,100);
+            chassis.wait_drive();
+            chassis.set_drive_pid(-2.3,80);
+            chassis.wait_drive();
+            chassis.set_turn_pid(65,100);
+            chassis.wait_drive();
+            chassis.set_drive_pid(-0.75,50);
+            pros::delay(350);
+            tilter.set_value(false);
+            pros::delay(1000);
+            chassis.set_drive_pid(2.5,80);
+            chassis.wait_drive();
+            intake.move_velocity(0);
+            
             
             break;
         case 3:
 
            //Blue Right AWP
-            // chassis.set_drive_pid(-8.8, 50);
-            // chassis.wait_drive();
-            // chassis.set_turn_pid(87, 80);
-            // chassis.wait_drive();
-            // chassis.set_drive_pid(-2.8,100);
-            // chassis.wait_drive();
-            // intake.move_velocity(12000);
-            // pros::delay(1500);
-            // chassis.set_drive_pid(3,100);
-            // chassis.wait_drive();
-            // chassis.set_turn_pid(-133, 80);
-            // chassis.wait_drive();
-            // tilter.set_value(true);
-            // chassis.set_drive_pid(-11.7,60);
-            // chassis.wait_drive();
-            // tilter.set_value(false);
-            // pros::delay(500);
-            // chassis.set_turn_pid(8.5, 60);
-            // chassis.wait_drive();
-            // chassis.set_drive_pid(4,70);
-            // chassis.wait_drive();
-            // pros::delay(250);
-            // chassis.set_drive_pid(7,40);
-            // chassis.wait_drive();
-            // pros::delay(800);
-            // chassis.set_turn_pid(85, 60);
-            // chassis.wait_drive();
-            // chassis.set_drive_pid(5,60);
-            // chassis.wait_drive();
-            // pros::delay(2000);
-            // chassis.set_drive_pid(-4,80);
-            // chassis.wait_drive();
-            // chassis.set_turn_pid(180, 60);
-            // chassis.wait_drive();
-            // chassis.set_drive_pid(13,80);
-            // chassis.wait_drive();
-            // doinker.set_value(true);
-            // chassis.set_turn_pid(90, 60);
-            // chassis.wait_drive();
+
+            //score on alliance stake
+            chassis.set_drive_pid(2.4,80);
+            chassis.wait_drive();
+            chassis.set_turn_pid(90,100);
+            chassis.wait_drive();
+            chassis.set_drive_pid(-1, 60);
+            chassis.wait_drive();
+            intake.move_velocity(12000);
+            pros::delay(750);
+
+            //grab first mobile goal
+            chassis.set_drive_pid(1.5, 100);
+            chassis.wait_drive();
+            tilter.set_value(true);
+            chassis.set_turn_pid(-53,100);
+            chassis.wait_drive();
+            chassis.set_drive_pid(-9.5, 80);
+            chassis.wait_drive();
+            chassis.set_drive_pid(-3.5, 50);
+            chassis.wait_drive();
+            tilter.set_value(false);
+            pros::delay(1000);
+
+            //score first ring
+            chassis.set_turn_pid(-187,70);
+            chassis.wait_drive();
+            chassis.set_drive_pid(7.5,60);
+            chassis.wait_drive();
+            pros::delay(1500);
+
+            //score second ring
+            chassis.set_turn_pid(90,100);
+            chassis.wait_drive();
+            chassis.set_drive_pid(8, 50);
+            chassis.wait_drive();
+            pros::delay(1000);
+
+            //touch the pole
+            chassis.set_drive_pid(-5.5, 80);
+            chassis.wait_drive();
+            chassis.set_turn_pid(0,100);
+            chassis.wait_drive();
+            chassis.set_drive_pid(12.5, 80);
+            chassis.wait_drive();
+            doinker.set_value(true);
+            pros::delay(250);
+            chassis.set_turn_pid(-65,90);
+            chassis.wait_drive();
+            intake.move_velocity(0);
+
+            
+
             
             break;
         case 4:
         
+            //Blue Left Elim
+
+
 
             break;
         case 5:
+
+            //Blue Right Elim
+
+
            
             break;
         case 6:
 
+            //Red Left Elim
+
+
+
             break;
         case 7:
+
+            //Red Right Elim
+
             
+
             break;
         case 8: 
 

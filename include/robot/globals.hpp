@@ -7,7 +7,8 @@
 extern Controller master;
 
 //Motors
-extern pros::Motor intake, ladyBrown1, ladyBrown2;
+// extern pros::Motor intake, ladyBrown1, ladyBrown2;
+extern pros::Motor intake;
 extern pros::Motor motors[8];
 
 //IMU

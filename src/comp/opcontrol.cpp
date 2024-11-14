@@ -94,9 +94,9 @@
 
         //Intake Control
         if (master.get_digital(DIGITAL_R2)){
-            intake.move_voltage(-10000);
+            intake.move_voltage(-12000);
         }else if (master.get_digital(DIGITAL_R1))
-            intake.move_voltage(10000);
+            intake.move_voltage(12000);
         else{
             intake.move_voltage(0);
         }
@@ -118,16 +118,18 @@
 
         if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_L2)) {
             if (counter == 0) {
-                ladyBrown1.move_absolute(140,127);
-                ladyBrown2.move_absolute(140,127);
-            }
-            else if (counter == 1) {
-                ladyBrown1.move_absolute(735,127);
-                ladyBrown2.move_absolute(735,127);
+                //ladyBrown1.move_absolute(140,127);
+                //ladyBrown2.move_absolute(140,127);
+                setPosition(20);
+            }else if (counter == 1) {
+                // ladyBrown1.move_absolute(735,127);
+                // ladyBrown2.move_absolute(735,127);
+                setPosition(120);
             }
             else if (counter == 2) {
-                ladyBrown1.move_absolute(0,127);
-                ladyBrown2.move_absolute(0,127);
+                // ladyBrown1.move_absolute(0,127);
+                // ladyBrown2.move_absolute(0,127);
+                setPosition(0);
             }
             counter ++;
             counter = counter % 3;

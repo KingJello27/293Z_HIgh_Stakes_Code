@@ -6,18 +6,18 @@ Controller master(E_CONTROLLER_MASTER);
 
 //Motors
 Motor leftFront(13, E_MOTOR_GEAR_GREEN, true, E_MOTOR_ENCODER_DEGREES); 
-Motor leftMiddle(12, E_MOTOR_GEAR_GREEN, true, E_MOTOR_ENCODER_DEGREES); 
+Motor leftMiddle(14, E_MOTOR_GEAR_GREEN, true, E_MOTOR_ENCODER_DEGREES); 
 Motor leftBack(20, E_MOTOR_GEAR_GREEN, true, E_MOTOR_ENCODER_DEGREES);
-Motor rightFront(14, E_MOTOR_GEAR_GREEN, false, E_MOTOR_ENCODER_DEGREES); 
-Motor rightMiddle(15, E_MOTOR_GEAR_GREEN, false, E_MOTOR_ENCODER_DEGREES); 
+Motor rightFront(11, E_MOTOR_GEAR_GREEN, false, E_MOTOR_ENCODER_DEGREES); 
+Motor rightMiddle(12, E_MOTOR_GEAR_GREEN, false, E_MOTOR_ENCODER_DEGREES); 
 Motor rightBack(19, E_MOTOR_GEAR_GREEN, false, E_MOTOR_ENCODER_DEGREES); 
  
-Motor intake(1, E_MOTOR_GEAR_BLUE, false, E_MOTOR_ENCODER_DEGREES); 
+Motor intake(18, E_MOTOR_GEAR_BLUE, false, E_MOTOR_ENCODER_DEGREES); 
 
 Imu imu(16);
 
-Motor ladyBrown1(5, E_MOTOR_GEAR_GREEN, false, E_MOTOR_ENCODER_DEGREES);
-Motor ladyBrown2(-4, E_MOTOR_GEAR_GREEN, true, E_MOTOR_ENCODER_DEGREES);
+// Motor ladyBrown1(5, E_MOTOR_GEAR_GREEN, false, E_MOTOR_ENCODER_DEGREES);
+// Motor ladyBrown2(-4, E_MOTOR_GEAR_GREEN, true, E_MOTOR_ENCODER_DEGREES);
 
 pros::Motor motors[7] = {leftFront, leftMiddle, leftBack, rightFront, rightMiddle, rightBack, intake};
 
@@ -30,11 +30,11 @@ pros::ADIDigitalOut doinker('A');
 Drive chassis (
   // Left Chassis Ports (negative port will reverse it!)
   //   the first port is the sensored port (when trackers are not used!)
-  {-13, -12, -20}
+  {-13, -14, -20}
 
   // Right Chassis Ports (negative port will reverse it!)
   //   the first port is the sensored port (when trackers are not used!)
-  ,{14, 15, 19}
+  ,{11, 12, 19}
 
   // IMU Port
   ,16

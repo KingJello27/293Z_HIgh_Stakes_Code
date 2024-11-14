@@ -1,4 +1,4 @@
-#include "main.h"
+#include "main.h" // IWYU pragma: keep
 
 //Autonomous Manager Fields
 int autonIndex;
@@ -15,14 +15,14 @@ const char* autonNames[12] = {"Autonomous 1",
                                         "Autonomous 11",
                                         "Autonomous 12"};
 
-const char* autonDescs[12] = {"Left Auton",
-                                        "Right Auton",
-                                        "Do Nothing",
-                                        "Do Nothing",
-                                        "Do Nothing",
-                                        "Do Nothing",
-                                        "Do Nothing",
-                                        "Do Nothing",
+const char* autonDescs[12] = {"Red Left AWP",
+                                        "Red Right 1/2 AWP",
+                                        "Blue Left 1/2 AWP",
+                                        "Blue Right AWP",
+                                        "Red Left Elim",
+                                        "Red Right Elim",
+                                        "Blue Left Elim",
+                                        "Blue Right Elim",
                                         "Do Nothing",
                                         "Do Nothing",
                                         "Do Nothing",
@@ -30,5 +30,5 @@ const char* autonDescs[12] = {"Left Auton",
 
 //Autonomous Manager Initialization
 void autonInit(){
-  autonIndex=0;
+  autonIndex=2;
 }

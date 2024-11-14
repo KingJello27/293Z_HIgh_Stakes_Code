@@ -19,10 +19,12 @@ void initialize() {
 	displayInit();
 	graphicsInit();
 	autonMenuInit();
-	// ladyBrownInit();
-	ladyBrown1.tare_position();
-	ladyBrown2.tare_position();
+	ladyBrownInit();
+	// ladyBrown1.tare_position();
+	// ladyBrown2.tare_position();
 	// flywheelInit();pros
+
+	pros::Task ladyBrownTask(asyncController);
 
 	imu.reset();
 
