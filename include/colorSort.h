@@ -1,15 +1,15 @@
-#pragma once
-#include "main.h" // IWYU pragma: keep
+// #pragma once
+// #include "main.h" // IWYU pragma: keep
 
-// //Setters
-// extern void setPosition(double targetPosition);
+// // //Setters
+// // extern void setPosition(double targetPosition);
 
-//Initialization
-extern void colorSortInit();
+// //Initialization
+// extern void colorSortInit();
 
-//Async Controller
-extern void asyncColorSortController(void * param);
+// //Async Controller
+// extern void asyncColorSortController(void * param);
 
-// extern double getData();
+// // extern double getData();
 
-// extern void waitUntilSettled();
+// // extern void waitUntilSettled();

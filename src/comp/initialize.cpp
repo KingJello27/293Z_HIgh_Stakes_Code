@@ -54,7 +54,7 @@ void initialize() {
 
 	// pros::Task flywheelTask (asyncFlywheelController);
 	pros::Task dispTask (asyncDisplay);
-	pros::Task colorSortTask (asyncColorSortController);
+	// pros::Task colorSortTask (asyncColorSortController);
 }
 
 /**
