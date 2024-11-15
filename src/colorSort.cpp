@@ -63,62 +63,57 @@ void blueFilter() {
         }
     }
 
-void asyncColorSortController(void*param){
-    while (true){
-    if (colorIndex() % 2 == 0)
-    redFilter();
-    else if (colorIndex() % 2 != 0)
-    blueFilter();
+//Pseudocode
+
+//Remove Red Rings
+//If we detect a red ring, extent the piston and wait
+//If wait is complete and ring is still detected, it will keep waiting
+//If wait is complete and ring is gone, piston will retract until another ring is detected
+void removeRed(){
+    while(true){
+        if(ringIsRed()){
+            //extend piston
+            //delay
+        }else{
+            //retract piston
+        }
+        pros::delay(20);
     }
 }
 
-// double ladyBrownTargetPosition;
-// double kP;
-// double error;
-// double input;
-// bool settled = false;
+void removeBlue(){
+    while(true){
+        if(ringIsBlue()){
+            //extend piston
+            //delay
+        }else{
+            //retract piston
+        }
+        pros::delay(20);
+    }
+}
 
-// if (colorIndex() % 2 == 0){
+//Helper Fuction
+bool ringIsBlue(){
+    //Check if ring is blue with if statement 
+    //Return true if blue
+    //Return false if not
+}
 
-// }else{
+bool ringIsRed(){
+    //Check if ring is red with if statement 
+    //Return true if red
+    //Return false if not
+}
 
-// }
 
-// //Rotation Sensor
-// pros::Rotation rotationSensor(2);
+void asyncColorSortController(void*param){
+    while(!inAutonomous && !inDriverControl)
+        pros::delay(50);
+            
+    if(colorIndex%2==0)
+        removeRed();
+    removeBlue();
+}
 
-// //Motors
-// Motor ladyBrown1(17, E_MOTOR_GEAR_GREEN, false, E_MOTOR_ENCODER_DEGREES);
-// Motor ladyBrown2(1, E_MOTOR_GEAR_GREEN, true, E_MOTOR_ENCODER_DEGREES);
-
-// double getData(){
-//     return input;
-// }
-
-// //Setters
-// void setPosition(double targetPosition){
-//     ladyBrownTargetPosition = targetPosition;
-// }
-
-// //Async Controller
-// void asyncController(void * param){
-//     while (true){
-//         // settled = false;
-//         error = ladyBrownTargetPosition - (rotationSensor.get_position()/100); 
-//         if (error < 3 && error > -3){
-//             error = 0;
-//             // settled = true;
-//         }
-//         input = kP * error;
-//         ladyBrown1.move_voltage(input * 120);
-//         ladyBrown2.move_voltage(input * 120);
-//         pros::delay(25);
-//     }
-// }
-
-// // void waitUntilSettled(){
-// //     while (settled == false){
-// //         pros::delay(25);
-// //     }
-// // }
 
