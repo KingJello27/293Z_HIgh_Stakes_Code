@@ -4,6 +4,7 @@
 #include "robot/subsystems/managers/pneumaticManager.hpp" // IWYU pragma: keep
 #include <string> // IWYU pragma: keep
 #include "ladybrown.h"
+#include "colorSort.h"
     /**
  * Runs the operator control code. This function will be started in its own task
  * with the default priority and stack size whenever the robot is enabled via
@@ -103,19 +104,6 @@
         }
 
         //Lady Brown
-        // if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_L2)) {
-        //     if (counter == 0) {
-        //         setPosition(30);
-        //     }
-        //     else if (counter == 1) {
-        //         setPosition(130);
-        //     }
-        //     else if (counter == 2) {
-        //         setPosition(0);
-        //     }
-        //     counter ++;
-        //     counter = counter % 3;
-        // }
 
         if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_L2)) {
             if (counter == 0) {
@@ -137,8 +125,7 @@
         }
 
          //Color Sorter
-
-         rgb_value = optical_sensor.get_rgb();
+        
 
         // if (colorIndex() % 2 == 0) {
         //     if (rgb_value.blue){

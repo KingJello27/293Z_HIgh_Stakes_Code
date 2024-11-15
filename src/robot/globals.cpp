@@ -1,5 +1,6 @@
 #include "main.h" // IWYU pragma: keep
 #include "ladybrown.h" // IWYU pragma: keep
+#include "colorSort.h" // IWYU pragma: keep
 
 //Controller
 Controller master(E_CONTROLLER_MASTER);
@@ -16,8 +17,8 @@ Motor intake(18, E_MOTOR_GEAR_BLUE, false, E_MOTOR_ENCODER_DEGREES);
 
 Imu imu(16);
 
-pros::Optical optical_sensor(3);
-pros::c::optical_rgb_s_t rgb_value;
+// pros::Optical optical_sensor(3);
+// pros::c::optical_rgb_s_t rgb_value;
 
 
 // Motor ladyBrown1(5, E_MOTOR_GEAR_GREEN, false, E_MOTOR_ENCODER_DEGREES);
@@ -28,7 +29,7 @@ pros::Motor motors[7] = {leftFront, leftMiddle, leftBack, rightFront, rightMiddl
 //Pneumatics
 pros::ADIDigitalOut tilter('B');
 pros::ADIDigitalOut doinker('A');
-pros::ADIDigitalOut color('C');
+// pros::ADIDigitalOut color('C');
 
 
 // Chassis constructor

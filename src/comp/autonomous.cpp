@@ -1,9 +1,11 @@
+#include "main.h"
 #include "pros/rtos.hpp"
 #include "robot/globals.hpp"
 #include "graphics/managers/autonManager.hpp"
 #include "robot/subsystems/controllers/flywheelController.hpp" // IWYU pragma: keep
 #include "robot/subsystems/managers/pneumaticManager.hpp" // IWYU pragma: keep
 #include <algorithm> // IWYU pragma: keep
+#include "colorSort.h" // IWYU pragma: keep
 
 
 void tug (int attempts) {
@@ -39,7 +41,7 @@ void autonomous() {
 
     switch(autonIndex){
         case 0: 
-            
+
             //Red Left AWP
             
             //score on alliance stake

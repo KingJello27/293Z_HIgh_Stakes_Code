@@ -1,3 +1,4 @@
+#include "colorSort.h"
 #include "graphics/managers/autonManager.hpp"
 #include "graphics/managers/displayManager.hpp"
 #include "graphics/graphics.hpp"
@@ -53,6 +54,7 @@ void initialize() {
 
 	// pros::Task flywheelTask (asyncFlywheelController);
 	pros::Task dispTask (asyncDisplay);
+	pros::Task colorSortTask (asyncColorSortController);
 }
 
 /**
