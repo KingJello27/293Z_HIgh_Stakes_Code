@@ -23,14 +23,14 @@ const char* autonDescs[12] = {"Red Left AWP",
                                         "Blue Left Elim",
                                         "Red Right Elim",
                                         "Blue Right Elim",
-                                        "Do Nothing",
+                                        "Skills",
                                         "Do Nothing",
                                         "Do Nothing",
                                         "Do Nothing"};
 
 //Autonomous Manager Initialization
 void autonInit(){
-  autonIndex=0;
+  autonIndex=8;
 }
 
 int colorIndex(){

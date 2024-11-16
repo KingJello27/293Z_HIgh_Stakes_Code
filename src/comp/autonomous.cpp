@@ -6,6 +6,7 @@
 #include "robot/subsystems/managers/pneumaticManager.hpp" // IWYU pragma: keep
 #include <algorithm> // IWYU pragma: keep
 #include "colorSort.h" // IWYU pragma: keep
+#include "ladybrown.h"
 
 
 void tug (int attempts) {
@@ -321,6 +322,146 @@ void autonomous() {
 
             break;
         case 8: 
+
+            //Skills
+
+            //score on alliance goal and grab first goal
+            intake.move_velocity(12000);
+            pros::delay(750);
+            intake.move_velocity(0);
+            chassis.set_drive_pid(3.3, 100);
+            chassis.wait_drive();
+            chassis.set_turn_pid(-90, 100);
+            chassis.wait_drive();
+            tilter.set_value(true);
+            chassis.set_drive_pid(-6.2, 100);
+            chassis.wait_drive();
+            tilter.set_value(false);
+            pros::delay(500);
+
+            //score first ring
+            chassis.set_turn_pid(15,100);
+            chassis.wait_drive();
+            intake.move_velocity(12000);
+            chassis.set_drive_pid(9, 100);
+            chassis.wait_drive();
+            pros::delay(750);
+
+            //score second ring
+            chassis.set_turn_pid(28,100);
+            chassis.wait_drive();
+            chassis.set_drive_pid(20, 100);
+            chassis.wait_drive();
+            pros::delay(1000);
+
+            //grab lady brown ring
+            setPosition(20);
+            chassis.set_turn_pid(148,100);
+            chassis.wait_drive();
+            chassis.set_drive_pid(8.5,100);
+            chassis.wait_drive();
+            pros::delay(1000);
+            
+            //jitter
+            intake.move_velocity(0);
+            pros::delay(50);
+            intake.move_velocity(12000);
+            pros::delay(50);
+            intake.move_velocity(0);
+            pros::delay(50);
+            intake.move_velocity(12000);
+            pros::delay(50);
+            intake.move_velocity(0);
+            pros::delay(50);
+            intake.move_velocity(12000);
+            pros::delay(50);
+            intake.move_velocity(0);
+
+            //score on wall stake
+            chassis.set_turn_pid(90,100);
+            chassis.wait_drive();
+            setPosition(120);
+            pros::delay(1000);
+            chassis.set_drive_pid(3,100);
+            chassis.wait_drive();
+
+            //score third + fourth + fifth rings
+            chassis.set_drive_pid(-6,100);
+            chassis.wait_drive();
+            setPosition(0);
+            // intake.move_velocity(12000);
+            // chassis.set_turn_pid(180,100);
+            // chassis.wait_drive();
+            // chassis.set_drive_pid(15,100);
+            // chassis.wait_drive();
+            // pros::delay(1000);
+
+            // //score sixth ring
+            // chassis.set_turn_pid(45,100);
+            // chassis.wait_drive();
+            // chassis.set_drive_pid(3.5,100);
+            // chassis.wait_drive();
+
+            // //drop of mobile goal
+            // chassis.set_turn_pid(-10,100);
+            // chassis.wait_drive();
+            // chassis.set_drive_pid(-3.5,100);
+            // chassis.wait_drive();
+            // tilter.set_value(true);
+            // pros::delay(250);
+
+            // //grab second mobile goal
+            // chassis.set_drive_pid(3.5,100);
+            // chassis.wait_drive();
+            // chassis.set_turn_pid(90,100);
+            // chassis.wait_drive();
+            // chassis.set_drive_pid(-20,100);
+            // chassis.wait_drive();
+            // tilter.set_value(false);
+            // pros::delay(500);
+
+            // //score seventh ring
+            // chassis.set_turn_pid(0,100);
+            // chassis.wait_drive();
+
+            // // turn to next ring
+            // chassis.set_drive_pid(3.5,100);
+            // chassis.wait_drive();
+
+            // // go to ring in the middle
+            // chassis.set_turn_pid(45,100);
+            // chassis.wait_drive();
+            // chassis.set_drive_pid(3.5,100);
+            // chassis.wait_drive();
+            // chassis.set_drive_pid(-3.5,100);
+            // chassis.wait_drive();
+
+            // // go to the next group of rings
+            // chassis.set_turn_pid(-90,100);
+            // chassis.wait_drive();
+            // chassis.set_drive_pid(3.5 ,100);
+            // chassis.wait_drive();
+            // chassis.set_turn_pid(-180,100);
+            // chassis.wait_drive();
+
+            // // intake the new row of ring
+            // chassis.set_drive_pid(12 ,100);
+            // chassis.wait_drive();
+            // chassis.set_turn_pid(315,100);
+            // chassis.wait_drive();
+            // chassis.set_drive_pid(3.5 ,100);
+            // chassis.wait_drive();
+
+            // //pick up ring
+            // pros::delay(1000);
+            // chassis.set_turn_pid(-165,100);
+            // chassis.wait_drive();
+            // tilter.set_value(true);
+            // pros::delay(250);
+            // chassis.set_drive_pid(3 ,100);
+            // chassis.wait_drive();
+
+
 
             break;
         case 9:
