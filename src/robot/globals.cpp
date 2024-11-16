@@ -13,7 +13,7 @@ Motor rightFront(11, E_MOTOR_GEAR_GREEN, false, E_MOTOR_ENCODER_DEGREES);
 Motor rightMiddle(12, E_MOTOR_GEAR_GREEN, false, E_MOTOR_ENCODER_DEGREES); 
 Motor rightBack(19, E_MOTOR_GEAR_GREEN, false, E_MOTOR_ENCODER_DEGREES); 
  
-Motor intake(18, E_MOTOR_GEAR_BLUE, false, E_MOTOR_ENCODER_DEGREES); 
+Motor intake(10, E_MOTOR_GEAR_BLUE, false, E_MOTOR_ENCODER_DEGREES); 
 
 Imu imu(16);
 
