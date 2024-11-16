@@ -46,7 +46,7 @@ void autonomous() {
             //Red Left AWP
             
             //score on alliance stake
-            chassis.set_drive_pid(2.4,80);
+            chassis.set_drive_pid(2.6,80);
             chassis.wait_drive();
             chassis.set_turn_pid(-90,100);
             chassis.wait_drive();
@@ -87,7 +87,7 @@ void autonomous() {
             chassis.wait_drive();
             chassis.set_turn_pid(0,100);
             chassis.wait_drive();
-            chassis.set_drive_pid(11.5, 80);
+            chassis.set_drive_pid(12.5, 80);
             chassis.wait_drive();
             doinker.set_value(true);
             pros::delay(250);
@@ -101,7 +101,7 @@ void autonomous() {
 
             //Blue Right AWP
 
-            //score on alliance stake           
+            //score on alliance stake
             chassis.set_drive_pid(2.4,80);
             chassis.wait_drive();
             chassis.set_turn_pid(90,100);
@@ -219,7 +219,7 @@ void autonomous() {
             //Blue Left 1/2 AWP
             
             //score on alliance stake
-            chassis.set_drive_pid(1.95,80);
+            chassis.set_drive_pid(1.8,80);
             chassis.wait_drive();
             chassis.set_turn_pid(-90,100);
             chassis.wait_drive();
@@ -257,7 +257,7 @@ void autonomous() {
             pros::delay(500);
 
             //grab second mobile goal
-            chassis.set_drive_pid(5,100);
+            chassis.set_drive_pid(6,100);
             chassis.wait_drive();
             chassis.set_turn_pid(90,100);
             chassis.wait_drive();
